@@ -1,0 +1,323 @@
+body {
+    justify-content: stretch;
+    align-self: stretch;
+    background: url("Stenis.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-color: rgb(205, 255, 218);
+}
+.NaslovLabel {
+    font-size: 50px;
+    font-style: italic;
+    font-weight: bold;
+    color: rgb(0, 25, 139);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.KontaktLab {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkblue;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+.NaslovForma {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    padding: 1rem 2rem;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+.KontaktForm {
+    justify-content: center;
+}
+.Zaglavlje {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+.Meni {
+    width: 100%;
+  
+    
+    display: grid;
+    grid-template-columns:auto auto auto auto auto;
+    flex-wrap: wrap;
+    border: none;
+}
+.Meni button
+{
+    width: 100%;
+}
+
+.TabelaIgraci {
+    width: 100%;
+    
+}
+tr:hover {
+    background-color: #cd8350;
+}
+.TabelTurniri {
+    width: 100%;
+    ;}
+    .TabelaSudije {
+        width: 100%;
+        
+    }
+    
+    .TabelaKlubovi {
+        width: 100%;
+       ;
+    }
+    
+    .TabelaMecevi {
+        width: 100%;
+      
+    }
+    
+    table,
+    tr,
+    th,
+    td {
+        text-align: center;
+        font-size: 18px;
+        table-layout: fixed;
+        border: 2px solid brown;
+    }
+    table {
+        border-collapse: collapse;
+        background-color: rgb(156, 241, 213);
+    }
+.GlavnaForma {
+   display: grid;
+   grid-template-columns: auto auto;
+    width: 100%;
+   
+}
+
+.FormaKontrole {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-right: 10px;
+}
+.FormaKontrole button{
+    color:rgb(6,19,58);
+    padding: 15px 20px;
+    border:none;
+    box-shadow:0 5px 10px rgba(0,0,0,0.7);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.FormaKontrole button:hover{
+    color:white;
+}
+.FormaPrikaz {
+    float: left;
+    min-width: 75%;
+    height: 100%;
+    
+}
+.FormaPrikazTurniri {
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.LabeleKontrole {
+    display:flex;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    color: #2b1d14;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.LabeleKontrolePrikaziIgraca {
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    color: #2b1d14;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    font-style:oblique;
+    color: #2b1d14;
+}
+
+.InputKontrole {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.DugmiciKontrole {
+    margin-bottom: 30px;
+    width: fit-content;
+    font-size: 18px;
+    background-color: rgb(250, 215, 160);
+    border-color: brown;
+   
+}
+.DugmePregledaj{
+    box-shadow:0 5px 10px rgba(0,0,0,0.7);
+    border:none;
+}
+.DugmiciKontrole:hover {
+    background-color: #8b5027;
+    border-color: brown;
+}
+.DugmiciDodajOdustani {
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100%;
+    margin-right: 10px;
+    width: 50%;
+}
+.IgracKontole {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IgracKontrolePrikaz {
+    margin-bottom: px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+    color:aliceblue;
+}
+.LabeleKontrolePrikaziIgraca{
+    color:black;
+}
+.Zatvori {
+    font-family: 'Times New Roman';
+    background-color: rgb(156, 241, 213);
+    border-color: brown;
+    font-size: 20px;
+    font-weight: bold;
+    float:right;
+    margin:20px;
+    width: 100%;
+}
+.btnPretrazi {
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100%;
+    margin-right: 200px;
+    margin-left: 200px;
+    width: 100%;
+}
+
+.btnSacuvaj {
+    font-family: 'Times New Roman';
+    width: fit-content;
+    font-size: 20px;
+    background-color: rgb(250, 215, 160);
+    border-color: brown;
+}
+.Header 
+{ 
+    color:rgb(6,19,58);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-style: oblique;
+}
+.DugmiciMeni
+{
+  
+    width:99%;
+    padding:20px 30px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    box-shadow:0 5px 10px rgba(0,0,0,0.7);
+    border-radius:3px;
+    font-size: medium;
+    font-weight: bold;
+    color:rgb(6,19,58);
+    
+   
+}
+.DugmiciMeni:hover {
+    background:rgb(6,19,58);
+    color:white;
+}
+table,td,tr{
+    padding: 10px 10px;
+    
+}
+th{
+    padding:10px 10px;
+}
+.Zatvori {
+    display: wrap;
+
+}
+.btnDodajTurnir{
+    border: none;
+    box-shadow:0 5px 10px rgba(0,0,0,0.7);
+    padding:20px 30px;
+}
+@media only screen and (max-width:730px)  {
+    .Meni {
+        grid-template-columns:auto auto auto;
+        
+    }
+    .TabelaIgraci{
+        width: 99%;
+    }
+    .Meni:nth-child(3){
+        grid-area: 2/3/span 1/span 2;
+    }
+}
+@media only screen and (max-width:900px) {
+    .GlavnaForma{
+        grid-template-columns: auto;
+    }
+    .FormaKontrole button{
+        width:100%;
+        
+    }
+    .Zatvori{
+        grid-template-columns: auto;
+    }
+    
+}
+@media only screen and (max-width:700px)
+{
+    .TabelaIgraci {
+        width:670px;
+
+    }
+    .FormaPrikaz{
+        overflow-x:scroll;
+    }
+@media only screen and (max-width:1000px)
+{
+    .TabelaTurniri{
+        overflow-x: scroll;
+    }
+}
+    
+}
