@@ -114,12 +114,17 @@ namespace WPST.Controllers
             try
             {
                 var Sudija = Context.Sudije
+            
                 .Where(p => p.Ime.CompareTo(Ime) == 0 && p.Prezime.CompareTo(Prezime) == 0).FirstOrDefault();
                 
                 var pom = Context.Turniri.Where(p=>p.Sudija==Sudija);
-                if (pom!=null)
-                   Context.Turniri.RemoveRange(pom);
+            
+               /*  pom.ForEachAsync(el=>{
+                
+                   el.Sudija=null;
+                                
 
+                 });*/
                 if (Sudija != null)
                 {
                     string ime = Sudija.Ime;

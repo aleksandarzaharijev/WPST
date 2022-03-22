@@ -6,14 +6,14 @@ import { Mec } from "./Mec.js";
 
 export class Savez {  
 
-    constructor(ImeKluba, listaIgraca, listaKlubova, listaTurnira, listaSudija, listaMeceva) {
+    constructor(ImeKluba, listaIgraca, listaKlubova, listaTurnira, listaSudija) {
         this.ImeKluba = ImeKluba;
 
         this.listaIgraca = listaIgraca;
         this.listaKlubova = listaKlubova;
         this.listaTurnira = listaTurnira;
         this.listaSudija = listaSudija;
-        this.listaMeceva = listaMeceva;
+        
 
         this.kontejner = null;
     }
@@ -38,7 +38,8 @@ export class Savez {
     Zaglavlje.appendChild(GrbForma);
     this.CrtajGrb(GrbForma);*/
 
-    let Dugmici = ["Igraci", "Klubovi", "Turniri", "Sudije", "Mecevi"];
+    //let Dugmici = ["Igraci", "Klubovi", "Turniri", "Sudije", "Mecevi"];
+    let Dugmici = ["Igraci", "Klubovi", "Turniri", "Sudije"];
     var Btns = [];
     let Meni = document.createElement("div");
     Meni.className = "Meni";
@@ -62,7 +63,7 @@ export class Savez {
         Btns[1].onclick = (ev) => this.prikaziKlubove(GlavniForma);
         Btns[2].onclick = (ev) => this.prikaziTurnire(GlavniForma);
         Btns[3].onclick = (ev) => this.prikaziSudije(GlavniForma);
-        Btns[4].onclick = (ev) => this.prikaziMeceve(GlavniForma);
+       // Btns[4].onclick = (ev) => this.prikaziMeceve(GlavniForma);
     }
     CrtajNaslov(host) {
 
@@ -207,7 +208,7 @@ export class Savez {
         Broj_Legitimacije.appendChild(inputBroj_Legitimacije);
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "Meni2";
         host.appendChild(Btns);
 
         var Pretrazi, Odustani;
@@ -301,7 +302,7 @@ export class Savez {
     //Zatvori btn
 
     var Btns = document.createElement("div");
-    Btns.className = "Meni";
+    Btns.className = "Meni6";
     host.appendChild(Btns);
 
     var Odustani = document.createElement("button");
@@ -338,10 +339,13 @@ export class Savez {
         Divs[i].className = "IgracKontrole";
         PoljeKontrole.appendChild(Divs[i]);
 
+        var divZaObaEl = document.createElement("div");
+        divZaObaEl.className = "zaObaElementa";
+
         Labele[i] = document.createElement("label");
         Labele[i].className = "LabeleKontrole";
         Labele[i].innerHTML = LabeleTekst[i];
-        Divs[i].appendChild(Labele[i]);
+        divZaObaEl.appendChild(Labele[i]);
 
        /* Ulaz[0] = document.createElement("input");
         Ulaz[0].className = "InputKontrole";
@@ -350,13 +354,14 @@ export class Savez {
             Ulaz[i] = document.createElement("input");
             Ulaz[i].setAttribute("type", "date");
             Ulaz[i].className = "InputKontrole";
-            Divs[i].appendChild(Ulaz[i]);
+            divZaObaEl.appendChild(Ulaz[i]);
         } else {
             Ulaz[i] = document.createElement("input");
                 Ulaz[i].setAttribute("type", "text");
                 Ulaz[i].className = "InputKontrole";
-                Divs[i].appendChild(Ulaz[i]);
+                divZaObaEl.appendChild(Ulaz[i]);
         }
+        Divs[i].appendChild(divZaObaEl);
         i++;
 
         
@@ -474,9 +479,7 @@ export class Savez {
 
         //BTNS
 
-        /*var Btns = document.createElement("div");
-        Btns.className = "Meni";
-        host.appendChild(Btns);*/
+     
         var s = this.kontejner.querySelector(".IgracKontrole");
 
         var Btns = document.createElement("div");
@@ -516,10 +519,7 @@ export class Savez {
     PromeniBodovi(Broj_Legitimacije, bodovi) {
         fetch("https://localhost:5001/Igrac/Promeni_bodove/" + Broj_Legitimacije + "/" + bodovi, {
             method: 'PUT',
-            /*body: JSON.stringify({
-                "Broj_Legitimacije": Broj_Legitimacije,
-                "bodovi": bodovi
-            })*/
+           
         }).then(p=> {
             if(p.ok){
                 let GlavnaForma = this.kontejner.querySelector(".GlavnaForma");
@@ -528,9 +528,7 @@ export class Savez {
             }
         }) 
 
-      /*  let GlavnaForma = this.kontejner.querySelector(".GlavnaForma");
-
-        this.prikaziIgrace(GlavnaForma);*/
+     
     }
     IscrtajKontroleIgrac_Brisanje(host) {
 
@@ -769,7 +767,7 @@ export class Savez {
         })
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "Meni3";
         host.appendChild(Btns);
 
         var Dodaj, Odustani;
@@ -839,7 +837,7 @@ export class Savez {
         //Dugmici
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "Meni3";
         host.appendChild(Btns);
 
         var Prikazi, Odustani;
@@ -1077,7 +1075,7 @@ export class Savez {
         });
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "Meni4";
         host.appendChild(Btns);
 
         var Dodaj, Odustani;
@@ -1174,7 +1172,7 @@ export class Savez {
         });
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "Meni4";
         host.appendChild(Btns);
 
         var Dodaj, Odustani;
@@ -1229,7 +1227,7 @@ export class Savez {
                 p.json().then(Turniri => {
                     Turniri.forEach(T => {
                         console.log(T);
-                        var turnir = new Turnir(T.ime_Turnira,T.organizatorTurnira,T.datum_pocetka,T.mesto_Odrzavanja,T.nagrada,T.osvajac_Turnira,T.sudija);
+                        var turnir = new Turnir(T.turnir_ID,T.ime_Turnira,T.organizatorTurnira,T.datum_pocetka,T.mesto_Odrzavanja,T.nagrada,T.osvajac_Turnira,T.sudija);
                         this.listaTurnira.push(turnir);
                     });
 
@@ -1308,7 +1306,7 @@ export class Savez {
         });
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "Meni5";
         host.appendChild(Btns);
 
         var Obrisi, Odustani;
@@ -1391,7 +1389,7 @@ export class Savez {
                 p.json().then(Mecevi => {
                     Mecevi.forEach(M => {
                         console.log(M);
-                        var mec = new Mec(M.igrac1, M.igrac2, M.turnir, M.kolo, M.rezultat);
+                        var mec = new Mec(M.igrac1, M.igrac2, M.turnir, M.kolo, M.rezultat_Ishod);
                         this.listaMeceva.push(mec);
                         //console.log(K);
                     });
@@ -1593,20 +1591,25 @@ export class Savez {
 
                     this.DodajHeader(FormaPrikaz, "Lista turnira");
 
+                    var TurniriTabela = document.createElement("table");
+                    TurniriTabela.className = "TabelaTurniri";
+                    FormaPrikaz.append(TurniriTabela);
+
                     var DodajTurnir = document.createElement("div");
                     DodajTurnir.className = "divDodajTurnir";
                     FormaPrikaz.appendChild(DodajTurnir);
+                    
+                    var divGlavnaForma = this.kontejner.querySelector(".GlavnaForma");
+                    var divZaBtn = document.createElement("div");
+                    divZaBtn.className = "divZaBtn";
 
                     var btnDodajTurnir = document.createElement("button");
                     btnDodajTurnir.innerHTML = "Dodaj turnir";
                     btnDodajTurnir.className = "btnDodajTurnir";
-                    DodajTurnir.appendChild(btnDodajTurnir);
+                    divZaBtn.appendChild(btnDodajTurnir);
+                    divGlavnaForma.appendChild(divZaBtn);
 
                     btnDodajTurnir.onclick = (ev) => this.CrtajKontroleTurnir_Dodaj(host);
-
-                    var TurniriTabela = document.createElement("table");
-                    TurniriTabela.className = "TabelaTurniri";
-                    FormaPrikaz.append(TurniriTabela);
 
                     var TurniriHead = document.createElement("thead");
                     TurniriTabela.appendChild(TurniriHead);
@@ -1656,10 +1659,11 @@ export class Savez {
     }
     CrtajKontroleTurnir_Dodaj(host) {
         this.removeAllChildNodes(host);
-
+        host.classList.add("active");
         var FormaKontrole = document.createElement("div");
         FormaKontrole.className = "FormaKontrole";
         host.appendChild(FormaKontrole);
+
 
         this.DodajHeader(FormaKontrole, "Dodaj novi turnir");
 
@@ -1670,7 +1674,7 @@ export class Savez {
         var Divs = [Ime_turnira, Klub, Datum, Mesto, Nagrada, SudijaIme, SudijaPrezime];
 
         var lblIme_turnira, lblKlub, lblDatum, lblMesto, lblNagrada, lblSudijaIme, lblSudijaPrezime;
-        var LabeleTekst = ["Ime_turnira:", "Klub organizator:", "Datum pocetka:", "Mesto:", "Nagrada:", "Ime sudije:", "Prezime sudije:"];
+        var LabeleTekst = ["Ime turnira:", "Klub organizator:", "Datum pocetka:", "Mesto:", "Nagrada:", "Ime sudije:", "Prezime sudije:"];
         var Labeble = [lblIme_turnira, lblKlub, lblDatum, lblMesto, lblNagrada, lblSudijaIme, lblSudijaPrezime];
 
         var inputIme_turnira, inputKlub, inputDatum, inputMesto, inputNagrada, inputSudijaIme, inputSudijaPrezime;
@@ -1683,7 +1687,7 @@ export class Savez {
         LabeleTekst.forEach(D => {
 
             Divs[i] = document.createElement("div");
-            Divs[i].className = "IgracKontrole";
+            Divs[i].className = "IgracKontroleDiv";
             PoljeKontrole.appendChild(Divs[i]);
 
             Labeble[i] = document.createElement("label");
@@ -1709,7 +1713,7 @@ export class Savez {
         //Dugmici
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "IgracKontroleBtn";
         FormaKontrole.appendChild(Btns);
 
         var Dodaj, Odustani;
@@ -1728,8 +1732,8 @@ export class Savez {
         })
 
         Dugmici[0].onclick = (ev) => {
-            // if (Inputs[0].value === "" || Inputs[1].value === "" || Inp.value === "" || inputKlub.value === "")
-            //   alert("Morate uneti podatke za Broj_Legitimacije, Ime, Prezime i Klub!");
+          /*  if (Inputs[0].value === "" || Inputs[1].value === "" || Inp.value === "" || inputKlub.value === "")
+              alert("Morate uneti podatke za Broj_Legitimacije, Ime, Prezime i Klub!");*/
 
             console.log(Inputs[0].value, Inputs[1].value, Inputs[2].value, Inputs[3].value, Inputs[4].value, Inputs[5].value, Inputs[6].value);
 
@@ -1898,7 +1902,7 @@ export class Savez {
         // Dugmici
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "Meni7";
         host.appendChild(Btns);
 
         var Dodaj = document.createElement("button");
@@ -1989,7 +1993,7 @@ export class Savez {
         // Dugmici
 
         var Btns = document.createElement("div");
-        Btns.className = "Meni";
+        Btns.className = "Meni7";
         host.appendChild(Btns);
 
         var Dodaj, Odustani;
@@ -2026,12 +2030,11 @@ export class Savez {
 
         Dugmici[1].onclick = (ev) => this.IscrtajKontrole_Izabrani_Turnir(host);
 
-        //Naoravi da kada se kreria kolo da mogu da se prikazu redom mecevi
+    
     }
 
     Kreiraj_Kolo(host, KoloPoRedu) {
-        // Ova metoda nam vraca meceve tog kola
-
+      
         this.removeAllChildNodes(host);
 
         if (KoloPoRedu == 1) {
@@ -2073,7 +2076,7 @@ export class Savez {
                     FormaKontrole.className = "FormaKontrole";
                     host.appendChild(FormaKontrole);
 
-                    //this.DodajHeader(FormaPrikaz, "Turnir: " + this.listaTurnira[0].ime_Turnira +" "+" Kolo: " + this.listaTurnira[0].KoloPoRedu);
+     //this.DodajHeader(FormaPrikaz, "Turnir: " + this.listaTurnira[0].ime_Turnira +" "+" Kolo: " + this.listaTurnira[0].KoloPoRedu);
 
                     var MeceviTabela = document.createElement("table");
                     MeceviTabela.className = "TabelaMecevi";
@@ -2108,44 +2111,7 @@ export class Savez {
                         //console.log(K);
                     });
 
-                /*    console.log(this.listaTurnira[0].KoloPoRedu);
-
-                    var FormaPrikaz = document.createElement("div");
-                    FormaPrikaz.className = "FormaPrikaz";
-                    host.appendChild(FormaPrikaz);
-
-                    var FormaKontrole = document.createElement("div");
-                    FormaKontrole.className = "FormaKontrole";
-                    host.appendChild(FormaKontrole);
-
-                    this.DodajHeader(FormaPrikaz, "Turnir: " + this.listaTurnira[0].ime_Turnira +" "+" Kolo: " + this.listaTurnira[0].KoloPoRedu);
-
-                    var MeceviTabela = document.createElement("table");
-                    MeceviTabela.className = "TabelaMecevi";
-                    FormaPrikaz.append(MeceviTabela);
-
-                    var MeceviHead = document.createElement("thead");
-                    MeceviTabela.appendChild(MeceviHead);
-
-                    var tr = document.createElement("tr");
-                    MeceviHead.appendChild(tr);
-
-                    let th;
-                    var Head = ["Igrac1", "Rezultat", "Igrac2"];
-                    Head.forEach(el => {
-                        th = document.createElement("th");
-                        th.innerHTML = el;
-                        tr.appendChild(th);
-                    })
-
-                    var MeceviBody = document.createElement("tbody");
-                    MeceviBody.className = "MeceviPodaci";
-                    MeceviTabela.appendChild(MeceviBody);*/
-
-                
-                    // Kraj za deo koji prikazuje klubove
-
-                    // Deo koji prikazuje kontrole
+               
 
                     this.DodajHeader(FormaKontrole, "Sacuvaj rezultate");
 
@@ -2173,7 +2139,9 @@ export class Savez {
             console.log(R);
             Rezultati.push(R.value);
             var StringF = "https://localhost:5001/Turnir/Upisi_rezultate_kola?Turnir_ID=" + this.listaTurnira[0].turnir_ID + "&KoloPoRedu=" + this.listaTurnira[0].KoloPoRedu+"&rezultati="+R.innerText.charAt(0)+"&rezultati="+R.innerText.charAt(4);
-        
+          
+
+            // https://localhost:5001/Turnir/Upisi_rezultate_kola?Turnir_ID=2&KoloPoRedu=1&rezultati=3&rezultati=0
             //Turnir/Upisi_rezultate_kola?Turnir_ID=2&KoloPoRedu=1&rezultati=3&rezultati=1
         fetch(StringF,{
             method: 'PUT',
@@ -2189,29 +2157,7 @@ export class Savez {
         
         });
 
-        //console.log(Rezultati);
-
-        //console.log(Rezultati);
-        //var StringF = "https://localhost:5001/Turnir/Upisi_rezultate_kola?Turnir_ID=" + this.listaTurnira[0].turnir_ID + "&KoloPoRedu=" + this.listaTurnira[0].KoloPoRedu+"&";
         
-        //Turnir/Upisi_rezultate_kola?Turnir_ID=2&KoloPoRedu=1&rezultati=3&rezultati=1
-       /* Rezultati.forEach(R => {
-            console.log(R);
-            StringF = StringF + R ;
-        })*/
-
-       /* var String_Fetch = StringF.substring(0, StringF.length - 1);
-        console.log(String_Fetch);*/
-
-        /*fetch(StringF,{
-            method: 'PUT',
-        }).then(Response => {
-
-            this.listaTurnira[0].KoloPoRedu = this.listaTurnira[0].KoloPoRedu + 1;
-
-            let GlavnaForma = this.kontejner.querySelector(".GlavnaForma");
-            this.Prikazi_Ostale_Igrace(GlavnaForma);
-        });*/
     }
 
     

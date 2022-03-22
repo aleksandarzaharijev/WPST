@@ -45,6 +45,6 @@ namespace Models
         
         public Sudija Sudija { get; set; }
 
-       // public int Trenutno_kolo {get; set;}
+      
     }
 }

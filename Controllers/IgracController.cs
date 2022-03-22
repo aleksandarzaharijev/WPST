@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System;
 using System.Linq;
 using Models;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 namespace WP.Controllers
 {
@@ -77,7 +78,10 @@ namespace WP.Controllers
 
             var Igrac = Context.Igraci.Include(p => p.Klub).Where(p => p.Broj_Legitimacije == Broj_Legitimacije).FirstOrDefault();
 
-            return Ok(Igrac);
+            
+           
+        
+             return Ok(Igrac);
         }
 
         [Route("Svi_igraci_kluba")]
@@ -92,58 +96,10 @@ namespace WP.Controllers
 
        //PUT
 
-        [Route("Promeni_klub/{Broj_Legitimacije}/{ImeKluba}")]
-        [HttpPut]
-        public async Task<ActionResult> Dodaj_igraca_u_klub(string ImeKluba, int Broj_Legitimacije)
-        {
-            if (Broj_Legitimacije < 0 || Broj_Legitimacije > 99999) return BadRequest("Pogresna vrednost za broj legitimacije!!!");
-            if (ImeKluba == "") return BadRequest("Morate uneti ime kluba");
-            if (ImeKluba.Length > 50) return BadRequest("Pogresna duzina naziv!");
-
-            try
-            {
-                var Igrac = Context.Igraci.Include(p => p.Klub).Where(p => p.Broj_Legitimacije == Broj_Legitimacije).FirstOrDefault();
-                var klub = Context.Klubovi.Include(p => p.Igraci).Where(p => p.ImeKluba.CompareTo(ImeKluba) == 0).FirstOrDefault();
-
-                if (klub != null)
-                {
-                    if (Igrac != null)
-                    {
-                        Igrac.Klub = klub;
-
-                      //dodaj novog igraca
-
-                        int x = 1;
-
-                        foreach (var I in klub.Igraci)
-                        {
-                            if (I.Broj_Legitimacije == Igrac.Broj_Legitimacije) x = 0;
-                        }
-
-                        if (x == 1)
-                        {
-                            klub.Igraci.Add(Igrac);
-                        }
-                    }
-                    else
-                        return BadRequest("Igrac ne postoji u bazi!");
-                }
-                else
-                    return BadRequest($"Klub {ImeKluba} ne postoji u bazi!");
-
-                Context.Igraci.Update(Igrac);
-                Context.Klubovi.Update(klub);
-
-                await Context.SaveChangesAsync();
-                return Ok($"Izmenjeni podaci o igracu {Igrac.Ime} {Igrac.Prezime}, presao je u klub {ImeKluba}!");
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
+        
+          
          
-          [Route("Promeni_bodove/{Broj_Legitimacije}/{bodovi}")]
+        [Route("Promeni_bodove/{Broj_Legitimacije}/{bodovi}")]
         [HttpPut]
         public async Task<ActionResult> IzmeniBodove(int Broj_Legitimacije, int bodovi)
         {
@@ -201,7 +157,7 @@ namespace WP.Controllers
                     return Ok($"Igrac sa  brojem legitimacije {Broj_Legitimacije}, {name} {surname} je uspesno izbrisan!");
                     //return Ok(Igrac);
                 }
-                else
+                
                 {
                     return Ok("Igrac sa unetim brojem legitimacije ne postoji!!!");
                 }

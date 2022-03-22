@@ -63,53 +63,7 @@ namespace WP.Controllers
 
         //DELETE
 
-    /*   [Route("Brisanje_kluba/{ImeKluba}")]
-        [HttpDelete]
-        public async Task<ActionResult> Izbrisiklub(string ImeKluba)
-        {
-            if (ImeKluba == "") return BadRequest("Morate uneti ime kluba");
-            if (ImeKluba.Length > 50) return BadRequest("Pogrešna dužina imena kluba!");
-
-            try
-            {
-                var Klub = Context.Klubovi
-                .Where(p => p.ImeKluba.CompareTo(ImeKluba) == 0).FirstOrDefault();
-                var pom = Context.Turniri.Where(p=>p.OrganizatorTurnira==Klub).FirstOrDefault();
-                var pom2 = Context.Mecevi.Where(p=>p.Turnir==pom);
-                var pom3 = Context.Igraci.Where(p=>p.Klub==Klub);
-                
-                for(int i =0;i<pom3.Count();i++)
-                {   
-        
-                }
-        
-
-                if(pom3!=null)
-                 Context.Igraci.RemoveRange(pom3);
-                if(pom2!=null)
-                Context.Mecevi.RemoveRange(pom2);
-                
-                if(pom!=null)
-                Context.Turniri.Remove(pom);
-              
-                if (Klub != null)
-                {
-                    Context.Klubovi.Remove(Klub);
-                    await Context.SaveChangesAsync();
-
-                    return Ok($"Klub {ImeKluba} je uspešno izbrisan!");
-                }
-                else
-                {
-                    return Ok("Takav klub ne postoji!");
-                }
-
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }*/
+    
         
         [Route("Izbrisi_igraca_iz_kluba/{ImeKluba}/{Broj_Legitimacije}")]
         [HttpDelete]
@@ -150,7 +104,7 @@ namespace WP.Controllers
         }
         //GET
 
-         [Route("Pregledaj_klub/{ImeKluba}")]
+        [Route("Pregledaj_klub/{ImeKluba}")]
         [HttpGet]
         public ActionResult Vrati_klub(string ImeKluba)
         {

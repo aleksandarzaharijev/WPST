@@ -10,14 +10,14 @@ var ListaIgraca = [];
 var ListaKlubova = [];
 var ListaTurnira = [];
 var ListaSudija = [];
-var ListaMeceva = [];
 
 
-var SSIS = new Savez("Stonoteniski savez Centralne Srbije", ListaIgraca, ListaKlubova, ListaTurnira, ListaSudija, ListaMeceva);
+
+var SSIS = new Savez("Stonoteniski savez Centralne Srbije", ListaIgraca, ListaKlubova, ListaTurnira, ListaSudija);
 
 SSIS.Crtaj_Naslovnu_Stranu(document.body);
 
-var SSCS = new Savez("Stonoteniski savez Vojvodine", ListaIgraca, ListaKlubova, ListaTurnira, ListaSudija, ListaMeceva);
+//var SSCS = new Savez("Stonoteniski savez Vojvodine", ListaIgraca, ListaKlubova, ListaTurnira, ListaSudija, ListaMeceva);
 
-SSCS.Crtaj_Naslovnu_Stranu(document.body);
+//SSCS.Crtaj_Naslovnu_Stranu(document.body);
 
